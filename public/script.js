@@ -12,6 +12,7 @@ $(document).ready(function() {
 
                 var blogPostArea = document.getElementById('posts');
                 blogPostArea.appendChild(postDiv);
+
             }
 
 
@@ -21,3 +22,6 @@ $(document).ready(function() {
         }
     });
 });
+// send form from here
+
+// document.location.reload();
