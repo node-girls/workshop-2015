@@ -1,40 +1,34 @@
 var http = require('http');
 var fs = require('fs');
-var jsonfile = require('jsonfile');
 var url = require('url');
 var querystring = require('querystring');
-var blogDataStringified;
 var blogData;
 
 var server = http.createServer(function (request, response) {
 
     if (request.method === 'GET') {
 
-        var path;
+        var pathFromRequest;
 
         if (request.url === '/posts') {
 
             // read posts from hard drive
             fs.readFile('./blog.json', 'utf-8', function(err, data) {
-                console.log (data);
                 // save as a JavaScript object
                 blogData = JSON.parse(data);
-                console.log("after parsing blogData is a ", typeof blogData);
                 // send posts back to client
                 response.writeHead(200);
                 response.write(data);
                 response.end();
             });
 
-
-
         } else if (request.url.match('/public')) {
-            path = "." + request.url;
+            pathFromRequest = "." + request.url;
         } else {
-            path = './public/index.html';
+            pathFromRequest = './public/index.html';
         }
-        if (path){
-            fs.readFile(path, 'utf-8', function(err, file) {
+        if (pathFromRequest){
+            fs.readFile(pathFromRequest, 'utf-8', function(err, file) {
                 // put in your response to send back to client
                 response.write(file);
                 response.end();
@@ -56,11 +50,13 @@ var server = http.createServer(function (request, response) {
             blogpost = querystring.parse(data);
             var timestamp = Date.now();
             blogData[timestamp] = blogpost.entry;
+            console.log("after adding", blogData);
             fs.writeFile('./blog.json', JSON.stringify(blogData, null, 4), function(err) {
 
                 if (err) {
                     console.log(err);
                 }
+                response.writeHead(302, {'Location': '/'});
                 response.end();
             });
         });
