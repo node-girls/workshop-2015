@@ -16,16 +16,4 @@ $(document).ready(function() {
             console.log(error);
         }
     });
-    $('#post-button').submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: '/',
-            type: 'post',
-            data: $('form#the-form').serialize(),
-            error: function(error) {
-                console.log(error);
-            }
-        });
-    });
-
 });
