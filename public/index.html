@@ -4,23 +4,23 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>My first Node.js blog!</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
         <link href="main.css" rel="stylesheet">
     </head>
     <body>
-        <h1>My blog!</h1>
-        <div id="posts">
+        <header>
+            <img class="main-logo" src="./img/logo1.png">
+            <h1 class="title">Node Girls</h1>
+        </header>
 
-        </div>
         <form class="" action="/create/post" method="post" id="the-form">
-            <label for="name">Name:</label>
-            <input name="name" type="text"></textarea>
-
-            <label for="post">Post:</label>
+            <label for="post">Write a Blog Post</label>
             <textarea name="post" rows="8" cols="40"></textarea>
 
             <button type="submit">Submit</button>
         </form>
 
+        <div class="post-container"></div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="./script.js" charset="utf-8"></script>

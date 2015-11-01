@@ -1,0 +1,54 @@
+/*******************
+* Basic Resets
+********************/
+
+body, html, div, label, p, h1, h2, h3, h4, h5, h6, form, a, input, textarea {
+	margin: 0; 
+	padding: 0; 
+	border: 0; 
+	outline: none;
+}
+
+
+body {
+	line-height: 1;
+	font-size: 88%;
+	font-family: 'Open Sans', arial, sans-serif;
+}
+
+div {
+	width: 100%;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+    padding: 23px 0;
+	margin: 0 15px;
+}
+
+h1 {
+	font-size: 32px;
+}
+
+/*******************
+*  Header
+********************/
+
+
+header {
+	background: -webkit-linear-gradient(#F5A9BC, #FF0040); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#F5A9BC, #FF0040); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#F5A9BC, #FF0040); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#F5A9BC, #FF0040); /* Standard syntax */
+}
+
+.title {
+	color: white;
+}
+
+.main-logo {
+	float: left;
+	width: 100px;
+	height: auto;
+}
