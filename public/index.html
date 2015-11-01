@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>My first Node.js blog!</title>
+        <link href="main.css" rel="stylesheet">
     </head>
     <body>
         <h1>My blog!</h1>
@@ -10,8 +12,13 @@
 
         </div>
         <form class="" action="/create/post" method="post" id="the-form">
-            <textarea name="entry" rows="8" cols="40" form="the-form"></textarea>
-            <button type="submit" name="post" id="post-button">Post!</button>
+            <label for="name">Name:</label>
+            <input name="name" type="text"></textarea>
+
+            <label for="post">Post:</label>
+            <textarea name="post" rows="8" cols="40"></textarea>
+
+            <button type="submit">Submit</button>
         </form>
 
 
