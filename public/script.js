@@ -6,12 +6,17 @@ $(document).ready(function() {
 
             for (var blogPost in data) {
                 var postDiv         = document.createElement('div');
-                var blogText        = document.createTextNode(data[blogPost]);
+                var postText        = document.createElement('p');
+                var thumbnail       = document.createElement('img');
                 var postContainer   = document.getElementsByClassName('post-container')[0];
 
-
+                thumbnail.src = "./img/logo2.png";
+                thumbnail.className = "thumbnail";
+                postText.innerText = data[blogPost];
                 postDiv.className = "post";
-                postDiv.appendChild(blogText);
+
+                postDiv.appendChild(thumbnail);
+                postDiv.appendChild(postText);
                 postContainer.appendChild(postDiv);
             }
         },
