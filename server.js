@@ -1,5 +1,5 @@
-var http        = require('http');
-var handlers    = require('./handlers.js');
+var http        = require("http");
+var handlers    = require("./handlers.js");
 
 var server = http.createServer(function (request, response) {
 
@@ -17,5 +17,5 @@ var server = http.createServer(function (request, response) {
 });
 
 server.listen(8000, function () {
-    console.log("blog server is running at port 8000!");
+    console.log("blog server is running at port 8000!"); //eslint-disable-line no-console
 });
