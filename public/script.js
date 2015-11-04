@@ -12,12 +12,13 @@ $(document).ready(function() {
 
                 thumbnail.src = "./img/logo2.png";
                 thumbnail.className = "thumbnail";
-                postText.innerText = data[blogPost];
+                postText.innerHTML = data[blogPost];
                 postDiv.className = "post";
 
                 postDiv.appendChild(thumbnail);
                 postDiv.appendChild(postText);
                 postContainer.appendChild(postDiv);
+                
             }
         },
         error: function(error){
