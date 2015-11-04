@@ -1,13 +1,13 @@
 var fs          = require("fs");
 var querystring = require("querystring");
 
-var static      = require("node-static");
-var file        = new static.Server("./public");
+var nodeStatic  = require("node-static");
+var directory   = new nodeStatic.Server("./public");
 
 
 function serveStaticFiles (req, res) {
 
-    file.serve(req, res);
+    directory.serve(req, res);
 }
 
 function getPostData (cb) {
