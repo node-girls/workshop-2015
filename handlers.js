@@ -41,10 +41,7 @@ function makeNewPost (req, res) {
     		var posts 		= JSON.parse(blogData);
 	        var blogpost 	= querystring.parse(data);
 	        var timestamp 	= Date.now();
-
-    		console.log("data >>>", blogpost)
-
-	        posts[timestamp] = blogpost.entry;
+	        posts[timestamp] = blogpost.post;
 
 	        fs.writeFile('./blog.json', JSON.stringify(posts, null, 4), function (err) {
 

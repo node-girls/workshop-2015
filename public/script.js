@@ -3,13 +3,21 @@ $(document).ready(function() {
         url: '/posts',
         dataType: 'json',
         success: function(data) {
+
             for (var blogPost in data) {
-                var postDiv = document.createElement('div');
+                var postDiv         = document.createElement('div');
+                var postText        = document.createElement('p');
+                var thumbnail       = document.createElement('img');
+                var postContainer   = document.getElementsByClassName('post-container')[0];
+
+                thumbnail.src = "./img/logo2.png";
+                thumbnail.className = "thumbnail";
+                postText.innerText = data[blogPost];
                 postDiv.className = "post";
-                var blogText = document.createTextNode(data[blogPost]);
-                postDiv.appendChild(blogText);
-                var blogPostArea = document.getElementById('posts');
-                blogPostArea.appendChild(postDiv);
+
+                postDiv.appendChild(thumbnail);
+                postDiv.appendChild(postText);
+                postContainer.appendChild(postDiv);
             }
         },
         error: function(error){
