@@ -6,14 +6,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "start:dev": "nodemon --ignore node_modules/ -e js,html,css server.js"
+    "start:dev": "nodemon --ignore node_modules/ -e js,html,css server.js",
+    "lint": "eslint **/*.js",
+    "validate": "npm ls"
   },
   "author": "node-girls",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.8.0"
+    "eslint": "^1.8.0",
+    "nodemon": "^1.8.0",
+    "pre-commit": "^1.1.2"
   },
   "dependencies": {
     "node-static": "^0.7.7"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
 }
