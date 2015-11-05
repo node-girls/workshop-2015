@@ -1,14 +1,14 @@
 $(document).ready(function() {
     $.ajax({
-        url: '/posts',
-        dataType: 'json',
+        url: "/posts",
+        dataType: "json",
         success: function(data) {
 
             for (var blogPost in data) {
-                var postDiv         = document.createElement('div');
-                var postText        = document.createElement('p');
-                var thumbnail       = document.createElement('img');
-                var postContainer   = document.getElementsByClassName('post-container')[0];
+                var postDiv         = document.createElement("div");
+                var postText        = document.createElement("p");
+                var thumbnail       = document.createElement("img");
+                var postContainer   = document.getElementsByClassName("post-container")[0];
 
                 thumbnail.src = "./img/logo2.png";
                 thumbnail.className = "thumbnail";
@@ -22,7 +22,9 @@ $(document).ready(function() {
             }
         },
         error: function(error){
-            console.log(error);
+            if (error) {
+            // TODO: handle error
+            }
         }
     });
 });
