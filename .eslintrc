@@ -5,7 +5,7 @@
     },
     "globals": {
         "document": true,
-        "$": true
+        "XMLHttpRequest": true
     },
     "rules": {
         "semi": 2,
