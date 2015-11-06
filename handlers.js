@@ -14,6 +14,10 @@ function getPostData (cb) {
 
     fs.readFile("./blog.json", "utf-8", function (err, data) {
 
+        if (err) {
+            // TODO: handle error
+        }
+
         cb(data);
     });
 }
@@ -30,19 +34,19 @@ function getBlogPosts (res) {
 function makeNewPost (req, res) {
     var data = "";
 
-    req.on("data", function(chunk) {
+    req.on("data", function (chunk) {
         data += chunk;
     });
 
     req.on("end", function() {
 
         getPostData( function (blogData) {
-            var posts       = JSON.parse(blogData);
-            var blogpost    = querystring.parse(data);
-            var timestamp   = Date.now();
-            posts[timestamp] = blogpost.post;
+            var existingPosts   = JSON.parse(blogData);
+            var newPost         = querystring.parse(data);
+            var time            = Date.now();
+            existingPosts[time] = newPost.post;
 
-            fs.writeFile("./blog.json", JSON.stringify(posts, null, 4), function (err) {
+            fs.writeFile("./blog.json", JSON.stringify(existingPosts, null, 4), function (err) {
 
                 if (err) {
                     // TODO: handle error
@@ -58,5 +62,6 @@ function makeNewPost (req, res) {
 module.exports = {
     serveStaticFiles: serveStaticFiles,
     getBlogPosts: getBlogPosts,
+    getPostData: getPostData,
     makeNewPost: makeNewPost
 };
