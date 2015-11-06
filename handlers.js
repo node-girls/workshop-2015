@@ -36,7 +36,7 @@ function respondError (response, errorCode) {
     response.end();
 }
 
-function getPostData (response, cb) {
+function getPostData (response, callback) {
 
     fs.readFile("./blog.json", "utf-8", function (err, data) {
 
@@ -44,7 +44,7 @@ function getPostData (response, cb) {
             respondError(response, 500);
         } else {
 
-            cb(data);
+            callback(data);
         }
     });
 }
@@ -65,7 +65,7 @@ function getBlogPosts (res) {
     });
 }
 
-function parseData (req, cb) {
+function parseData (req, callback) {
     var data = "";
 
     req.on("data", function (chunk) {
@@ -73,7 +73,7 @@ function parseData (req, cb) {
     });
 
     req.on("end", function() {
-        cb(data);
+        callback(data);
     });
 }
 
