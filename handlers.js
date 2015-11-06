@@ -19,7 +19,7 @@ function getPostData (cb) {
     });
 }
 
-function publishBlogPosts (res) {
+function getBlogPosts (res) {
 
 	getPostData(function (posts) {
 		res.writeHead(200);
