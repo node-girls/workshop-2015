@@ -26,3 +26,6 @@
 [__node-static__](https://www.npmjs.com/package/node-static) - Simple Node Routing Module
 
 ---
+[__pre-commit__](https://github.com/docdis/learn-pre-commit) - Learn about pre-commit hooks
+
+---
