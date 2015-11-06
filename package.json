@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "node test/runner.js",
+    "test:nyan": "node test/runner.js | tnyan",
     "start": "node server.js",
     "start:dev": "nodemon --ignore node_modules/ -e js,html,css server.js",
     "lint": "eslint **/*.js *.js",
@@ -13,11 +14,12 @@
   "author": "node-girls",
   "license": "ISC",
   "devDependencies": {
-    "shot": "^1.7.0",
-    "tape": "^4.2.2",
     "eslint": "^1.8.0",
     "nodemon": "^1.8.0",
-    "pre-commit": "^1.1.2"
+    "pre-commit": "^1.1.2",
+    "shot": "^1.7.0",
+    "tap-nyan": "0.0.2",
+    "tape": "^4.2.2"
   },
   "dependencies": {
     "node-static": "^0.7.7"
