@@ -1,19 +1,11 @@
-var http        = require("http");
-var handlers    = require("./handlers.js");
+"use strict";
+
+var http    = require("http");
+var routes  = require("./routes.js");
 
 var server = http.createServer(function (request, response) {
 
-    if ( request.url === "/posts" ) {
-
-        handlers.getBlogPosts(response);
-
-    } else if ( request.url === "/create/post" ) {
-
-        handlers.makeNewPost(request, response);
-    } else {
-
-        handlers.serveStaticFiles(request, response);
-    }
+    routes(request, response);
 });
 
 server.listen(8000, function () {

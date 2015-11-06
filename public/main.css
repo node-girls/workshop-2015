@@ -3,9 +3,9 @@
 ********************/
 
 body, html, div, label, p, h1, h2, h3, h4, h5, h6, form, a, input, textarea {
-	margin: 0; 
-	padding: 0; 
-	border: 0; 
+	margin: 0;
+	padding: 0;
+	border: 0;
 	outline: none;
 }
 
@@ -53,13 +53,14 @@ main {
 header {
 	background: #FF0040;
 	background: -webkit-linear-gradient(#F5A9BC, #FF0040);
-	background: -o-linear-gradient(#F5A9BC, #FF0040); 
+	background: -o-linear-gradient(#F5A9BC, #FF0040);
 	background: -moz-linear-gradient(#F5A9BC, #FF0040);
 	background: linear-gradient(#F5A9BC, #FF0040);
 }
 
 .title {
 	color: white;
+    display: inline-block;
 }
 
 .main-logo {
@@ -144,4 +145,20 @@ hr {
 	 .post {
 		width: 28.9%;
 	}
+}
+
+/*******************
+*  Error
+********************/
+
+.error {
+    color: #A5DF00;
+    text-align: center;
+    width: 80%;
+    position: absolute;
+}
+
+.no-display {
+    display: none;
+    visibility: hidden;
 }
