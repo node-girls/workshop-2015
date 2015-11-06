@@ -61,6 +61,6 @@ function makeNewPost (req, res) {
 
 module.exports = {
 	serveStaticFiles: serveStaticFiles,
-	publishBlogPosts: publishBlogPosts,
+	getBlogPosts: getBlogPosts,
 	makeNewPost: makeNewPost
 }
