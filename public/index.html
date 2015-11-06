@@ -1,21 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>My first Node.js blog!</title>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700' rel='stylesheet' type='text/css'>
+        <link href="main.css" rel="stylesheet">
     </head>
     <body>
-        <h1>My blog!</h1>
-        <div id="posts">
+        <header>
+            <img class="main-logo" src="./img/logo1.png">
+            <h1 class="title">Node Girls</h1>
+        </header>
+        <main>
 
-        </div>
-        <form class="" action="/create/post" method="post" id="the-form">
-            <textarea name="entry" rows="8" cols="40" form="the-form"></textarea>
-            <button type="submit" name="post" id="post-button">Post!</button>
-        </form>
+            <div class="entry-container">
+                <form class="" action="/create/post" method="post" id="the-form">
+                    <h2>Write a Blog Post</h2>
+                    <textarea name="post" rows="8" cols="40"></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
 
+            <br/>
+            <hr/>
+            <br/>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+            <h2>Recent Posts</h2>
+
+            <h4 class="error"></h4>
+
+            <div class="post-container"></div>
+        </main>
         <script src="./script.js" charset="utf-8"></script>
     </body>
 </html>

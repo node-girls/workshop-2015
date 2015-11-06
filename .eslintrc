@@ -1,0 +1,19 @@
+{
+    "extends": "eslint:recommended",
+    "env": {
+        "node": true
+    },
+    "globals": {
+        "document": true,
+        "XMLHttpRequest": true
+    },
+    "rules": {
+        "semi": 2,
+        "quotes": [2, "double"],
+        "no-undef": 2,
+        "no-use-before-define": [2],
+        "no-multi-spaces": 0,
+        "no-underscore-dangle": 0,
+        "key-spacing": 0,
+    }
+}

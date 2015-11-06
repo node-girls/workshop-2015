@@ -6,16 +6,23 @@
   "scripts": {
     "test": "node test/*.js",
     "start": "node server.js",
-    "start:dev": "nodemon server.js"
+    "start:dev": "nodemon --ignore node_modules/ -e js,html,css server.js",
+    "lint": "eslint **/*.js *.js",
+    "open": "open http://localhost:8000"
   },
   "author": "node-girls",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.8.0",
     "shot": "^1.7.0",
-    "tape": "^4.2.2"
+    "tape": "^4.2.2",
+    "eslint": "^1.8.0",
+    "nodemon": "^1.8.0",
+    "pre-commit": "^1.1.2"
   },
   "dependencies": {
     "node-static": "^0.7.7"
-  }
+  },
+  "pre-commit": [
+    "lint"
+  ]
 }
