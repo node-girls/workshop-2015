@@ -4,14 +4,16 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node test/*.js",
     "start": "node server.js",
     "start:dev": "nodemon server.js"
   },
   "author": "node-girls",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.8.0"
+    "nodemon": "^1.8.0",
+    "shot": "^1.7.0",
+    "tape": "^4.2.2"
   },
   "dependencies": {
     "node-static": "^0.7.7"

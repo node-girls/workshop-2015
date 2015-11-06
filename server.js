@@ -5,7 +5,7 @@ var server = http.createServer(function (request, response) {
 
     if ( request.url === "/posts" ) {
 
-        handlers.getBlogPosts(response);
+        handlers.publishBlogPosts(response);
 
     } else if ( request.url === "/create/post" ) {
 

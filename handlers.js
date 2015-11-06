@@ -19,7 +19,7 @@ function getPostData (cb) {
     });
 }
 
-function getBlogPosts (res) {
+function publishBlogPosts (res) {
 
 	getPostData(function (posts) {
 		res.writeHead(200);
@@ -61,6 +61,6 @@ function makeNewPost (req, res) {
 
 module.exports = {
 	serveStaticFiles: serveStaticFiles,
-	getBlogPosts: getBlogPosts,
+	publishBlogPosts: publishBlogPosts,
 	makeNewPost: makeNewPost
 }
