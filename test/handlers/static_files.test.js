@@ -1,12 +1,17 @@
 "use strict";
 
-var test        = require("tape");
-var Shot        = require("shot");
-var handlers    = require("../../handlers.js");
+var test                = require("tape");
+var Shot                = require("shot");
+var serveStaticFiles    = require("../../handlers.js").serveStaticFiles;
 
 test("/ serves up index.html", function (t) {
 
-    Shot.inject(handlers.serveStaticFiles, { method: "GET", url: "/" }, function (res) {
+    var options = {
+        method: "GET",
+        url: "/"
+    }
+
+    Shot.inject(serveStaticFiles, options, function (res) {
 
         t.equal(res.statusCode, 200, "Congrats, response is okay");
         t.equal(res.headers["Content-Type"] , "text/html", "contains html");
@@ -17,7 +22,12 @@ test("/ serves up index.html", function (t) {
 
 test("main.css is accessible by /main.css", function (t) {
 
-    Shot.inject(handlers.serveStaticFiles, { method: "GET", url: "/main.css" }, function (res) {
+    var options = {
+        method: "GET",
+        url: "/main.css"
+    }
+
+    Shot.inject(serveStaticFiles, options, function (res) {
 
         t.equal(res.statusCode, 200, "Congrats, file exists!");
         t.equal(res.headers["Content-Type"] , "text/css", "contains css");
