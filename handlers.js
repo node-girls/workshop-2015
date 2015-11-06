@@ -1,3 +1,5 @@
+"use strict";
+
 var fs          = require("fs");
 var querystring = require("querystring");
 
@@ -10,28 +12,60 @@ function serveStaticFiles (req, res) {
     directory.serve(req, res);
 }
 
-function getPostData (cb) {
+function isEmpty (obj) {
+    var hasOwnProperty  = Object.prototype.hasOwnProperty;
+
+    if (obj == null || obj.length === 0) {
+        return true;
+    } else if (obj.length > 0) {
+        return false;
+    }
+
+    for (var key in obj) {
+        if (hasOwnProperty.call(obj, key)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function respondError (response, errorCode) {
+
+    response.writeHead(errorCode);
+    response.end();
+}
+
+function getPostData (response, cb) {
 
     fs.readFile("./blog.json", "utf-8", function (err, data) {
 
         if (err) {
-            // TODO: handle error
-        }
+            respondError(response, 500);
+        } else {
 
-        cb(data);
+            cb(data);
+        }
     });
 }
 
 function getBlogPosts (res) {
 
-    getPostData(function (posts) {
-        res.writeHead(200);
-        res.write(posts);
-        res.end();
+    getPostData(res, function (data) {
+        var posts = JSON.parse(data);
+        if (isEmpty(posts)) {
+
+            respondError(res, 204);
+        } else {
+
+            res.writeHead(200);
+            res.write(data);
+            res.end();
+        }
     });
 }
 
-function makeNewPost (req, res) {
+function parseData (req, cb) {
     var data = "";
 
     req.on("data", function (chunk) {
@@ -39,8 +73,16 @@ function makeNewPost (req, res) {
     });
 
     req.on("end", function() {
+        cb(data);
+    });
+}
 
-        getPostData( function (blogData) {
+function createPost (req, res) {
+
+    parseData(req, function (data) {
+
+        getPostData(res, function (blogData) {
+
             var existingPosts   = JSON.parse(blogData);
             var newPost         = querystring.parse(data);
             var time            = Date.now();
@@ -49,7 +91,7 @@ function makeNewPost (req, res) {
             fs.writeFile("./blog.json", JSON.stringify(existingPosts, null, 4), function (err) {
 
                 if (err) {
-                    // TODO: handle error
+                    respondError(res, 503);
                 }
                 res.writeHead(302, {"Location": "/"});
                 res.end();
@@ -63,5 +105,5 @@ module.exports = {
     serveStaticFiles: serveStaticFiles,
     getBlogPosts: getBlogPosts,
     getPostData: getPostData,
-    makeNewPost: makeNewPost
+    createPost: createPost
 };

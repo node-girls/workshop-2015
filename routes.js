@@ -1,5 +1,6 @@
+"use strict";
+
 var handlers = require("./handlers.js");
-// TODO: remove node-static in favour of single file serving?
 
 function routes (request, response) {
     if ( request.url === "/posts" ) {
@@ -8,7 +9,7 @@ function routes (request, response) {
 
     } else if ( request.url === "/create/post" ) {
 
-        handlers.makeNewPost(request, response);
+        handlers.createPost(request, response);
     } else {
 
         handlers.serveStaticFiles(request, response);
