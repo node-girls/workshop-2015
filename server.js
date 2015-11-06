@@ -1,7 +1,7 @@
 var http        = require('http');
 var handlers    = require('./handlers.js');
 
-var server = http.createServer(function (request, response) {
+var routes = function (request, response) {
 
     if ( request.url === "/posts" ) {
 
@@ -14,8 +14,12 @@ var server = http.createServer(function (request, response) {
 
         handlers.serveStaticFiles(request, response);
     }
-});
+};
+
+http.createServer(routes);
 
 server.listen(8000, function () {
     console.log("blog server is running at port 8000!");
 });
+
+module.exports = routes;
