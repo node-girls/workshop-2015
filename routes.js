@@ -5,7 +5,7 @@ var handlers = require("./handlers.js");
 function routes (request, response) {
     if ( request.url === "/posts" ) {
 
-        handlers.getBlogPosts(request, response);
+        handlers.getPosts(request, response);
 
     } else if ( request.url === "/create/post" ) {
 
