@@ -33,8 +33,6 @@ function getPosts (req, res) {
 
 function createPost (req, res) {
 
-    // console.log(req);
-
     util.parseData(req, function (data) {
 
         util.getFileData(res, function (blogData) {
