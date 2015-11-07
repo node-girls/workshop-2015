@@ -16,6 +16,11 @@
 
 
 # Hints and tips
+
+## Use the tests!
+* Take a look at the tests, and how they are structured. It may give you a hint on what your project should do.
+
+
 ## Refreshing your page
 * You might want to refresh the page automatically when you submit a blog post.  One way to do it is to send back to your client a **302 status code**.  A 302 status code basically says "redirect to whatever it says in the HTTP Location Header".
 
