@@ -5,10 +5,8 @@ var fs          = require("fs");
 function isEmpty (obj) {
     var hasOwnProperty  = Object.prototype.hasOwnProperty;
 
-    if (obj == null || obj.length === 0) {
+    if (obj == null || obj.length === 0 || obj.length > 0) {
         return true;
-    } else if (obj.length > 0) {
-        return false;
     }
 
     for (var key in obj) {
