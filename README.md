@@ -15,7 +15,12 @@
 
 
 
+
 # Hints and tips
+
+## Node.js documentation
+* There are lots of useful Node modules and methods that will help you build your server.  `fs` is one, `fs.writeFile` and `fs.readFile` will be useful as well.
+* Look at the Node.js documentation for a list of all the different modules, methods and how to use them.  Of course, ask a mentor if you need pointing in the right direction!
 
 ## Use the tests!
 * Take a look at the tests, and how they are structured. It may give you a hint on what your project should do.
