@@ -1,4 +1,5 @@
 # Node Girls Basic CMS Example
+[Gitter channel](https://gitter.im/node-girls/workshop) for questions comments feedback etc.
 
 # Build and Test
 
