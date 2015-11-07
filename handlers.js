@@ -95,7 +95,7 @@ function createPost (req, res) {
                 if (err) {
                     respondError(res, 503);
                 }
-                res.writeHead(302, {"Location": "/"});
+                res.writeHead(200, {"Location": "/"});
                 res.end();
             });
         });
