@@ -2,6 +2,7 @@
 
 
 # Very Simple File Structure
+_Recommended for today_
 
 
 ```
