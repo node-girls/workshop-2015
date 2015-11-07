@@ -18,7 +18,7 @@
             var thumbnail       = document.createElement("img");
             var postContainer   = document.getElementsByClassName("post-container")[0];
 
-            thumbnail.src       = "./img/logo2.png";
+            thumbnail.src       = "./img/logo1.png";
             thumbnail.className = "thumbnail";
             postText.innerText  = posts[blogPost];
             postDiv.className   = "post";
