@@ -36,7 +36,7 @@ function respondError (response, errorCode) {
     response.end();
 }
 
-function getPostData (response, callback) {
+function getFileData (response, callback) {
 
     fs.readFile("./blog.json", "utf-8", function (err, data) {
 
@@ -49,10 +49,11 @@ function getPostData (response, callback) {
     });
 }
 
-function getBlogPosts (res) {
+function getPosts (req, res) {
 
-    getPostData(res, function (data) {
+    getFileData(res, function (data) {
         var posts = JSON.parse(data);
+
         if (isEmpty(posts)) {
 
             respondError(res, 204);
@@ -73,6 +74,7 @@ function parseData (req, callback) {
     });
 
     req.on("end", function() {
+
         callback(data);
     });
 }
@@ -81,7 +83,7 @@ function createPost (req, res) {
 
     parseData(req, function (data) {
 
-        getPostData(res, function (blogData) {
+        getFileData(res, function (blogData) {
 
             var existingPosts   = JSON.parse(blogData);
             var newPost         = querystring.parse(data);
@@ -103,7 +105,7 @@ function createPost (req, res) {
 
 module.exports = {
     serveStaticFiles: serveStaticFiles,
-    getBlogPosts: getBlogPosts,
-    getPostData: getPostData,
+    getPosts: getPosts,
+    getFileData: getFileData,
     createPost: createPost
 };
