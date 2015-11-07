@@ -6,7 +6,7 @@
     function displayError (message) {
         var errorElement = document.getElementsByClassName("error")[0];
 
-        errorElement.innerText = message;
+        errorElement.innerHTML = message;
     }
 
     function createPosts (data) {
@@ -18,9 +18,9 @@
             var thumbnail       = document.createElement("img");
             var postContainer   = document.getElementsByClassName("post-container")[0];
 
-            thumbnail.src       = "./img/logo2.png";
+            thumbnail.src       = "./img/logo1.png";
             thumbnail.className = "thumbnail";
-            postText.innerText  = posts[blogPost];
+            postText.innerHTML  = posts[blogPost];
             postDiv.className   = "post";
 
             postDiv.appendChild(thumbnail);

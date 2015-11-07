@@ -5,21 +5,18 @@ var test        = require("tape");
 var Shot        = require("shot");
 var createPost    = require("../../handlers.js").createPost
 
-test("createPost creates a post", function (t) {
+test("createPost sends back correct status code", function (t) {
 
 
     var options = {
         method: "POST",
         url: "/create/post",
-        payload: "shot"
+        payload: "hello node"
     }
 
     Shot.inject(createPost, options, function (res) {
 
-        console.log(options);
-
-        console.log(res);
-
+        t.equal(res.statusCode, 302, "Status code 302 comes back");
         t.end();
     })
 });
