@@ -4,10 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "node test/runner.js",
-    "test:nyan": "node test/runner.js | tnyan",
     "start": "node server.js",
     "start:dev": "nodemon --ignore node_modules/ -e js,html,css server.js",
+    "test": "node test/runner.js",
+    "test:nyan": "node test/runner.js | tnyan",
+    "coverage": "istanbul cover test/runner.js",
     "lint": "eslint **/*.js *.js",
     "open": "open http://localhost:8000"
   },
@@ -15,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^1.8.0",
+    "istanbul": "^0.4.0",
     "nodemon": "^1.8.0",
     "pre-commit": "^1.1.2",
     "shot": "^1.7.0",
